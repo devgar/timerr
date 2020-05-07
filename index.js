@@ -1,4 +1,4 @@
-
+#!/usr/bin/env node
 [_, _ ,time, err] = process.argv
 time = parseInt(time)
 time = time || 7
