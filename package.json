@@ -1,9 +1,11 @@
 {
   "name": "timerr",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A timed error echoer",
   "main": "index.js",
-  "bin" : { "timerr": "index.js" },
+  "bin": {
+    "timerr": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devgar/timerr.git"
