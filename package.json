@@ -1,0 +1,19 @@
+{
+  "name": "timerr",
+  "version": "0.1.0",
+  "description": "A timed error echoer",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devgar/timerr.git"
+  },
+  "author": "Edgar Albalate <dev.gardo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devgar/timerr/issues"
+  },
+  "homepage": "https://github.com/devgar/timerr#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
