@@ -1,6 +1,6 @@
 {
   "name": "timerr",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A timed error echoer",
   "main": "index.js",
   "bin": {
