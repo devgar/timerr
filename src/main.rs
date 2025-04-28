@@ -1,13 +1,23 @@
-use std::env;
-use std::{thread::sleep, time::Duration};
+use std::{env::args, process::ExitCode, str::FromStr, thread::sleep, time::Duration};
 
-fn parse(arg: String) -> Option<u32> {
-    Some(arg.parse::<u32>().expect("Argument type must be an unsigned integer"))
+trait ParseOr<T> {
+    fn parse_or(self, default: T) -> T
+    where
+        T: FromStr;
 }
 
-fn main() {
-    let time: u32 = env::args().nth(1).and_then(parse).unwrap_or(6);
-    let err : u32 = env::args().nth(2).and_then(parse).unwrap_or(1);
-    sleep(Duration::from_secs(time as u64));
-    std::process::exit(err as i32);
+impl<T> ParseOr<T> for Option<String> {
+    fn parse_or(self, default: T) -> T
+    where
+        T: FromStr,
+    {
+        self.and_then(|arg| arg.parse().ok()).unwrap_or(default)
+    }
+}
+
+fn main() -> ExitCode {
+    let time = args().nth(1).parse_or(1);
+    let error = args().nth(2).parse_or(1);
+    sleep(Duration::from_secs(time));
+    ExitCode::from(error)
 }
