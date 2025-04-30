@@ -21,3 +21,14 @@ fn main() -> ExitCode {
     sleep(Duration::from_secs(time));
     ExitCode::from(error)
 }
+
+#[cfg(test)]
+mod tests {
+    use super::ParseOr;
+    #[test]
+    fn test_parse_or() {
+        assert_eq!(Some("123".to_string()).parse_or(0), 123);
+        assert_eq!(Some("abc".to_string()).parse_or(0), 0);
+        assert_eq!(None.parse_or(42), 42);
+    }
+}
